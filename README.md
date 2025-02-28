@@ -1,3 +1,30 @@
+
+<!-- Written By Me -->
+->shadcn UI 
+->clerk
+->PostgreSQL DataBase
+->Prisma ORM
+->inngest  =>  npx inngest-cli@latest dev
+->react-hook-form
+->zod
+->@uiw/react-md-editor
+->html2pdf.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Already written -->
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
