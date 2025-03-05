@@ -19,7 +19,7 @@ export async function saveResume(content) {
   if (!user) throw new Error("User not found");
 
   try {
-    const resume = await db.resume.upsert({ //upser = update or insert whatever is suitable for the moment
+    const resume = await db.resume.upsert({ //upsert = update or insert whatever is suitable for the moment
       where: {
         userId: user.id,
       },

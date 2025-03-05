@@ -2,7 +2,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 const isProtectedRoute=createRouteMatcher([
-    "/dashboard(.*)",  //(.*) => means anything after /dashboard will also be protected
+    "/dashboard(.*)",  //(.*) => means anything after '/dashboard' will also be protected
     "/resume(.*)",
     "/interview(.*)",
     "/ai-cover-letter(.*)",
@@ -20,6 +20,7 @@ export default clerkMiddleware(async(auth,req)=>{
 
     return NextResponse.next()
 });
+
 
 export const config = {
   matcher: [

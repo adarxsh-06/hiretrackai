@@ -19,7 +19,7 @@ export default async function EditCoverLetterPage({ params }) {
           </Button>
         </Link>
 
-        <h1 className="text-6xl font-bold gradient-title mb-6">
+        <h1 className="font-bold mb-6 text-5xl md:text-6xl bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-gray-100 dark:via-gray-400 dark:to-gray-100 bg-clip-text text-transparent">
           {coverLetter?.jobTitle} at {coverLetter?.companyName}
         </h1>
       </div>

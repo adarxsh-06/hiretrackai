@@ -4,11 +4,13 @@
 ->clerk
 ->PostgreSQL DataBase
 ->Prisma ORM
-->inngest  =>  npx inngest-cli@latest dev
+->inngest  =>  npx inngest-cli@latest dev(in other terminal)
 ->react-hook-form
 ->zod
 ->@uiw/react-md-editor
 ->html2pdf.js
+->recharts
+->acertinity ui
 
 
 

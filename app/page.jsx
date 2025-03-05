@@ -9,7 +9,6 @@ import Testimonials from "@/components/Testimonials";
 export default function Home() {
   return (
     <div>
-      <div className="grid-background"></div>
       <HeroSection/>
       <FeatureSection/>
       <StatsSection/>

@@ -15,7 +15,7 @@ export default function MockInterviewPage() {
         </Link>
 
         <div>
-          <h1 className="text-6xl font-bold gradient-title">Mock Interview</h1>
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-gray-100 dark:via-gray-400 dark:to-gray-100 bg-clip-text text-transparent">Mock Interview</h1>
           <p className="text-muted-foreground">
             Test your knowledge with industry-specific questions
           </p>

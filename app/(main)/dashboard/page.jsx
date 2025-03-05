@@ -7,7 +7,7 @@ import DashboardView from './_components/DashboardView'
 const IndustryInsightsPage = async () => {
     const {isOnboarded}=await getUserOnboardingStatus()
     const insights=await getIndustryInsights()
-    // console.log(isOnboarded)
+
     if(!isOnboarded){
         redirect("/onboarding")
     }

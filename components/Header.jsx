@@ -1,4 +1,3 @@
-
 import { SignedOut, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
@@ -20,15 +19,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { checkUser } from "@/lib/checkUser";
-
+import ThemeToggle from "./ThemeToggle";
 
 const Header = async () => {
-
-  await checkUser()
+  await checkUser();
 
   return (
-    <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
-      <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <header className="fixed top-0 w-full border-b bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg dark:border-gray-700 z-50">
+      <nav className="container mx-auto px-6 h-16 flex items-center justify-between">
+        {/* Logo */}
         <Link href="/">
           <Image
             src="/logo.png"
@@ -39,27 +38,35 @@ const Header = async () => {
             className="rounded-full py-1 w-auto object-contain"
           />
         </Link>
-      
 
-        <div className="flex items-center space-x-2 md:space-x-4">
+        {/* Theme Toggle */}
+        <ThemeToggle />
+
+        {/* Navigation & User Actions */}
+        <div className="flex items-center space-x-3 md:space-x-6">
           <SignedIn>
+            {/* Industry Insights Button */}
             <Link href={"/dashboard"}>
-              <Button variant="outline">
+              <Button
+                variant="outline"
+                className="dark:border-gray-600 dark:text-white hover:dark:bg-gray-800"
+              >
                 <LayoutDashboard className="h-4 w-4" />
                 <span className="hidden md:block">Industry Insights</span>
               </Button>
             </Link>
 
+            {/* Growth Tools Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button>
+                <Button className="dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700">
                   <StarsIcon className="h-4 w-4" />
                   <span className="hidden md:block">Growth Tools</span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
 
-              <DropdownMenuContent>
+              <DropdownMenuContent className="dark:bg-gray-800 dark:border-gray-700 dark:text-white">
                 <DropdownMenuItem>
                   <Link className="flex items-center gap-2" href={"/resume"}>
                     <FileText className="h-4 w-4" />
@@ -83,27 +90,32 @@ const Header = async () => {
                     <span>Interview Prep</span>
                   </Link>
                 </DropdownMenuItem>
-
               </DropdownMenuContent>
-
             </DropdownMenu>
-
           </SignedIn>
 
+          {/* Sign In Button */}
           <SignedOut>
             <SignInButton>
-              <Button variant="outline">Sign In</Button>
+              <Button
+                variant="outline"
+                className="dark:border-gray-600 dark:text-white dark:hover:bg-gray-800"
+              >
+                Sign In
+              </Button>
             </SignInButton>
           </SignedOut>
 
+          {/* User Profile Button */}
           <SignedIn>
             <UserButton
               appearance={{
-                elements:{
-                    avatarBox:"w-10 h-10",
-                    userButtonPopoverCard:"shadow-xl",
-                    userPreviewMainIdentifier: "font-semibold"
-                }
+                elements: {
+                  avatarBox: "w-10 h-10",
+                  userButtonPopoverCard:
+                    "shadow-xl dark:bg-gray-900 dark:border-gray-700",
+                  userPreviewMainIdentifier: "font-semibold dark:text-white",
+                },
               }}
               afterSignOutUrl="/"
             />

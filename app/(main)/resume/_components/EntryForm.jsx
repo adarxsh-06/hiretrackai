@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -20,7 +19,6 @@ import { Sparkles, PlusCircle, X, Loader2 } from "lucide-react";
 import { improveWithAI } from "@/actions/resume";
 import { toast } from "sonner";
 import useFetch from "@/hooks/use-fetch";
-
 
 const formatDisplayDate = (dateString) => {
   if (!dateString) return "";
@@ -97,14 +95,14 @@ export function EntryForm({ type, entries, onChange }) {
       return;
     }
     if (!organization) {
-        toast.error("Please enter an organization first");
-        return;
+      toast.error("Please enter an organization first");
+      return;
     }
-    
+
     await improveWithAIFn({
       current: description,
       type: type.toLowerCase(), // 'experience', 'education', or 'project'
-      organization:organization.toLowerCase()
+      organization: organization.toLowerCase(),
     });
   };
 
