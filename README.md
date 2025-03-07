@@ -4,7 +4,7 @@
 ->clerk
 ->PostgreSQL DataBase
 ->Prisma ORM
-->inngest  =>  npx inngest-cli@latest dev(in other terminal)
+->inngest  =>  npx inngest-cli@latest dev (in other terminal)
 ->react-hook-form
 ->zod
 ->@uiw/react-md-editor
