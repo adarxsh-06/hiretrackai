@@ -18,19 +18,23 @@ export async function updateUser(data) {
   if (!user) throw new Error("User not found");
 
   try {
+
     // Start a transaction to handle both operations
+    
     const result = await db.$transaction( //transactions ensures that all the below 3 operations completes => if anyone fails the the transaction will fail and gives the error
+
       async (tx) => {
+
         // First check if industry exists
         let industryInsight = await tx.industryInsight.findUnique({
           where: {
-            industry: data.industry,
+            industry: data?.industry,
           },
         });
 
         // If industry doesn't exist, create it with default values
         if (!industryInsight) {
-           const insights = await generateAIInsights(data.industry);
+           const insights = await generateAIInsights(data?.industry);
            
             industryInsight = await db.industryInsight.create({
                 data: {
@@ -47,10 +51,10 @@ export async function updateUser(data) {
             id: user.id,
           },
           data: {
-            industry: data.industry,
-            experience: data.experience,
-            bio: data.bio,
-            skills: data.skills,
+            industry: data?.industry,
+            experience: data?.experience,
+            bio: data?.bio,
+            skills: data?.skills,
           },
         });
 
@@ -74,7 +78,9 @@ export async function updateUser(data) {
 
 export async function getUserOnboardingStatus() {
   const { userId } = await auth();
-  if (!userId) throw new Error("Unauthorized");
+  if (!userId){
+    throw new Error("Unauthorized");
+  } 
 
   const user = await db.user.findUnique({
     where: { clerkUserId: userId },

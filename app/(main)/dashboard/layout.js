@@ -1,7 +1,14 @@
 import { BarLoader } from "react-spinners";
 import { Suspense } from "react";
+import { getUserOnboardingStatus } from "@/actions/user";
+import { redirect } from "next/navigation";
 
-const Layout = ({ children }) => {
+const Layout = async ({ children }) => {
+  const { isOnboarded } = await getUserOnboardingStatus();
+
+  if (!isOnboarded) {
+    redirect("/onboarding");
+  }
   return (
     <div className="px-6 py-8 bg-gray-50 dark:bg-gray-900 transition-colors duration-500 rounded-lg shadow-md dark:shadow-lg">
       <div className="flex items-center justify-between mb-6">

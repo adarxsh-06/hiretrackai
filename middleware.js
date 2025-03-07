@@ -1,24 +1,25 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
-const isProtectedRoute=createRouteMatcher([
-    "/dashboard(.*)",  //(.*) => means anything after '/dashboard' will also be protected
-    "/resume(.*)",
-    "/interview(.*)",
-    "/ai-cover-letter(.*)",
-    "/onboarding(.*)",
-])
 
+const isProtectedRoute = createRouteMatcher([
+  "/dashboard(.*)", //(.*) => means anything after '/dashboard' will also be protected
+  "/resume(.*)",
+  "/interview(.*)",
+  "/ai-cover-letter(.*)",
+  "/onboarding(.*)",
+]);
 
-export default clerkMiddleware(async(auth,req)=>{
-    const {userId}=await auth()
+export default clerkMiddleware(async (auth, req) => {
+  const { userId } = await auth();
 
-    if(!userId && isProtectedRoute(req)){
-        const {redirectToSignIn}=await auth()
-        return redirectToSignIn()
-    }
+  // If the user is not signed in and tries to access a protected route, redirect to sign-in
+  if (!userId && isProtectedRoute(req)) {
+    const { redirectToSignIn } = await auth();
+    return redirectToSignIn();
+  }
 
-    return NextResponse.next()
+  return NextResponse.next();
 });
 
 
@@ -29,4 +30,4 @@ export const config = {
     // Always run for API routes
     '/(api|trpc)(.*)',
   ],
-};
+}

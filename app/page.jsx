@@ -8,7 +8,7 @@ import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <HeroSection/>
       <FeatureSection/>
       <StatsSection/>
@@ -16,7 +16,6 @@ export default function Home() {
       <Testimonials/>
       <Faqs/>
       <Cta/>
-    
-    </div>
+    </>
   );
 }
