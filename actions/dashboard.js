@@ -58,7 +58,7 @@ export async function getIndustryInsights() {
       data: {
         industry: user.industry,
         ...insights,
-        nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        nextUpdate: new Date(Date.now() + 24 * 60 * 60 * 1000),
       },
     });
 
