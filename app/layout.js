@@ -6,6 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { Toaster } from "sonner";
 import OfflinePage from "@/components/OfflinePage";
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en" suppressHydrationWarning>
         <body className={`${inter.className}`}>
+          <Analytics />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -34,7 +36,9 @@ export default function RootLayout({ children }) {
             {/* header */}
             <Header />
 
-            <main className="min-h-screen">{children}</main>
+            <main className="min-h-screen">
+              {children}
+            </main>
             <Toaster richColors />
 
             <footer className="w-full py-12 bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
