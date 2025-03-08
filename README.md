@@ -1,8 +1,8 @@
 
-<!---->
+<!--hiretrack ai-->
 ->shadcn UI 
 ->clerk
-->PostgreSQL DataBase
+->PostgreSQL DataBase => Neon console
 ->Prisma ORM
 ->inngest  =>  npx inngest-cli@latest dev (in other terminal)
 ->react-hook-form
